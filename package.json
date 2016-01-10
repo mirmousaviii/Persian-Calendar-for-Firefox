@@ -1,8 +1,8 @@
 {
   "title": "Persian Calendar",
   "name": "persian-calendar",
-  "version": "0.0.4",
-  "description": "Shows Persian date (Jalali Caledar) تقویم شمسی، جلالی",
+  "version": "0.1.1",
+  "description": "Shows Persian Calendar (Jalali Caledar) تقویم شمسی، جلالی",
   "main": "index.js",
   "author": "Mostafa Mirmousavi",
   "engines": {
