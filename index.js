@@ -1,7 +1,7 @@
 //Include High-Level APIs
-var buttons     = require('sdk/ui/button/action');
-var sidebars    = require("sdk/ui/sidebar");
-var timers      = require("sdk/timers");
+var buttons = require('sdk/ui/button/action');
+var sidebars = require("sdk/ui/sidebar");
+var timers = require("sdk/timers");
 
 //Create button
 var button = buttons.ActionButton({
@@ -19,7 +19,7 @@ var button = buttons.ActionButton({
 });
 
 //Create sidebar
-var sidebar  = sidebars.Sidebar({
+var sidebar = sidebars.Sidebar({
     id: 'sidebar',
     title: 'Persian Calendar',
     url: './sidebar.html'
@@ -30,8 +30,8 @@ function handleClick(state) {
     sidebar.show();
 }
 
-//Call refreshButton every 1 minute
-timers.setInterval(refreshButton, 60000);
+//Call refreshButton every 3 minutes
+timers.setInterval(refreshButton, 180000);
 
 //Refresh Button with badge and label
 function refreshButton() {
