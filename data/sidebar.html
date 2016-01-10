@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="js/pwt.datepicker-master/dist/css/persian-datepicker-0.4.5.css"/>
+    <script src="js/pwt.datepicker-master/bower_components/jquery/dist/jquery.js"></script>
+    <script src="js/pwt.datepicker-master/bower_components/persian-date/dist/0.1.8/persian-date-0.1.8.js"></script>
+    <script src="js/pwt.datepicker-master/dist/js/persian-datepicker-0.4.5.js"></script>
+
+    <style>
+        body {
+            background-color: #f4f5f7;
+        }
+        .sidebar-footer {
+            font-family: Tahoma;
+            font-size: 10px;
+            float: left;
+        }
+        .content {
+        }
+        .calendar_widget {
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".calendar_widget").pDatepicker({
+                observer: true,
+                format : "YYYY/MM/DD dddd",
+                persianDigit: true,
+                formatter: function (unixDate) {
+                    var self = this;
+                    var pdate = new persianDate(unixDate);
+                    pdate.formatPersian = true;
+                    return pdate.format(self.format);
+                },
+            });
+        });
+
+    </script>
+    <p class="calendar_widget"></p>
+
+</div>
+
+<p class="sidebar-footer">نسخه آزمایشی، به زودی تکمیل می شود</p>
+
+</body>
+</html>
