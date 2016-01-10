@@ -12,25 +12,28 @@
         body {
             background-color: #f4f5f7;
         }
-        .sidebar-footer {
-            font-family: Tahoma;
-            font-size: 10px;
-            float: left;
-        }
+
         .content {
         }
         .calendar_widget {
+            display: block;
+            height: 275px;
+        }
+        .full_date_persian {
+            font-family: Tahoma,serif;
+            direction: rtl;
+            text-align: center;
+        }
+        .full_date_gregorian {
+            text-align: center;
         }
     </style>
-</head>
-<body>
-<div class="content">
 
     <script type="text/javascript">
         $(document).ready(function() {
-            $(".calendar_widget").pDatepicker({
+            $('.calendar_widget').pDatepicker({
                 observer: true,
-                format : "YYYY/MM/DD dddd",
+                altField: '.calendar_selected',
                 persianDigit: true,
                 formatter: function (unixDate) {
                     var self = this;
@@ -41,12 +44,33 @@
             });
         });
 
+
+
     </script>
+</head>
+<body>
+<div class="content">
     <p class="calendar_widget"></p>
 
+    <input type="hidden" class="calendar_selected"/>
+
+    <p class="full_date_persian"></p>
+    <p class="full_date_gregorian"></p>
 </div>
 
-<p class="sidebar-footer">نسخه آزمایشی، به زودی تکمیل می شود</p>
+<script type="text/javascript">
+    $('.calendar_selected').change(function() {
 
+        var selected = new Date( parseInt( $('.calendar_selected').val() ) );
+
+        var fullDatePersian = selected.toLocaleDateString("fa-IR");
+        fullDatePersian = fullDatePersian.substring(0, fullDatePersian.length - 6);
+        $('.full_date_persian').text(fullDatePersian);
+
+        var fullDateGregorian = selected.getFullYear() + '/' +  (selected.getMonth() + 1) + '/' + selected.getDate();
+        $('.full_date_gregorian').text(fullDateGregorian);
+
+    });
+</script>
 </body>
 </html>
