@@ -17,6 +17,9 @@ The extension will then be reinstalled every time you save a file, without you h
 If you don't use Extension Auto-Installer, you need to do what the extension does for you manually every time you save.
 That is, `jpm run -b <Path to your firefox binary> -p <Path to your firefox profile>`.
 
-**Please develop on the next branch.**
+Please develop on the next branch.
 This makes it easier for me to merge and prepare releases in the future.
 Thanks for the interest!
+
+## Acknowledgment
+Reza Babakhani: https://github.com/babakhani/pwt.datepicker
