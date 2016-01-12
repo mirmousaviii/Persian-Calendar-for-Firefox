@@ -1,10 +1,20 @@
-//Include High-Level APIs
-var buttons = require('sdk/ui/button/action');
+//Include APIs
+var self = require("sdk/self");
+var panels = require("sdk/panel");
+var toggleButtons = require('sdk/ui/button/toggle').ToggleButton;
 var sidebars = require("sdk/ui/sidebar");
 var timers = require("sdk/timers");
 
+//Create panel
+var panel = panels.Panel({
+    width: 280,
+    height: 380,
+    contentURL: self.data.url("panel.html"),
+    onHide: panelsHandleHide
+});
+
 //Create button
-var button = buttons.ActionButton({
+var button = toggleButtons({
     id: "btn-sidebar",
     label: '-',
     icon: {
@@ -14,8 +24,7 @@ var button = buttons.ActionButton({
     },
     badge: 0,
     badgeColor: '#00AAAA',
-
-    onClick: handleClick
+    onChange: buttonHandleChange
 });
 
 //Create sidebar
@@ -25,13 +34,25 @@ var sidebar = sidebars.Sidebar({
     url: './sidebar.html'
 });
 
-//Handle click for button
-function handleClick(state) {
-    sidebar.show();
+
+//Button handle change for show calendar in panel
+function buttonHandleChange(state) {
+    if (state.checked) {
+        panel.show({
+            position: button
+        });
+    }
 }
+
+//Panels handle hide unchecked button
+function panelsHandleHide() {
+    button.state('window', {checked: false});
+}
+
 
 //Call refreshButton every 3 minutes
 timers.setInterval(refreshButton, 180000);
+
 
 //Refresh Button with badge and label
 function refreshButton() {
@@ -47,3 +68,6 @@ function refreshButton() {
 
 //Refresh Button after load (First refresh)
 refreshButton();
+
+
+
