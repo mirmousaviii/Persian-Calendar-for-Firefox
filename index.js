@@ -9,7 +9,7 @@ var timers = require("sdk/timers");
 var panel = panels.Panel({
     width: 280,
     height: 380,
-    contentURL: self.data.url("panel.html"),
+    contentURL: self.data.url("calendar.html"),
     onHide: panelsHandleHide
 });
 
@@ -31,7 +31,7 @@ var button = toggleButtons({
 var sidebar = sidebars.Sidebar({
     id: 'sidebar',
     title: 'Persian Calendar',
-    url: './sidebar.html'
+    url: './calendar.html'
 });
 
 

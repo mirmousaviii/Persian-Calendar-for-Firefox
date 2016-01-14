@@ -3,31 +3,12 @@
 <head>
     <meta charset="utf-8">
 
+    <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="css/persian-datepicker-0.4.5.css"/>
     <script src="js/jquery.js"></script>
     <script src="js/persian-date-0.1.8.js"></script>
     <script src="js/persian-datepicker-0.4.5.js"></script>
 
-    <style>
-        body {
-            background-color: #f4f5f7;
-        }
-
-        .content {
-        }
-        .calendar_widget {
-            display: block;
-            height: 275px;
-        }
-        .full_date_persian {
-            font-family: Tahoma,serif;
-            direction: rtl;
-            text-align: center;
-        }
-        .full_date_gregorian {
-            text-align: center;
-        }
-    </style>
 
     <script type="text/javascript">
         $(document).ready(function() {
@@ -40,7 +21,7 @@
                     var pdate = new persianDate(unixDate);
                     pdate.formatPersian = true;
                     return pdate.format(self.format);
-                },
+                }
             });
         });
 
@@ -71,6 +52,7 @@
         $('.full_date_gregorian').text(fullDateGregorian);
 
     });
+
 </script>
 </body>
 </html>
